@@ -2,7 +2,7 @@ def count_letters(text):
     let_count = {}
 
     for char in text:
-        if char.isalpha():  #Является ли символ буквой
+        if char.isalpha(): #
             lower_char = char.lower()
             if lower_char in let_count:
                 let_count[lower_char] += 1
@@ -11,15 +11,14 @@ def count_letters(text):
     return let_count
 
 def calculate_frequency(let_count):
-    total_letters = sum(let_count.values())  #Общее колво букв
+    total_letters = sum(let_count.values())
     frequency = {}
 
-    for letter in let_count.keys():  #Через порядок появления букв
-        freq = round(let_count[letter] / total_letters, 2) if total_letters > 0 else 0.00
-        frequency[letter] = f"{freq:.2f}"
+    for letter in let_count.keys():
+        freq = let_count[letter] / total_letters if total_letters > 0 else 0.00
+        frequency[letter] = freq
 
     return frequency
-
 
 main_str = """
 У лукоморья дуб зелёный;
@@ -57,10 +56,8 @@ main_str = """
 Свои мне сказки говорил.
 """
 
-#Подсчет букв и их частоты
 let_counts = count_letters(main_str)
 frequencies = calculate_frequency(let_counts)
 
 for letter, freq in frequencies.items():
-    print(f"{letter}: {freq}")
-
+    print(f"{letter}: {freq:.2f}")
